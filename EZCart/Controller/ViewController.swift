@@ -7,11 +7,14 @@
 
 import UIKit
 import Vision
+import CoreData
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
-    var cartList: [Product] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var cartList = [Product]()
     var wordsGeted:[String] = []
     var possiblePrice:[String] = []
     var possibleProducts:[String] = []
@@ -24,6 +27,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
+        
+        loadProducts()
     }
     
     
@@ -120,10 +125,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
-        var newProduct = Product()
+        var newProduct = Product(context: self.context)
         newProduct.label = titleTextLable.text
         newProduct.priceLabel = priceTextLabel.text
+        
+        cartList.append(newProduct)
+        saveProduct()
         print(newProduct)
+    }
+    
+    func saveProduct(){
+        do {
+            try context.save()
+        } catch {
+            print("Erro to save product: \(error)")
+        }
+        
+        loadProducts()
+    }
+    
+    func loadProducts(){
+        let request : NSFetchRequest<Product> = Product.fetchRequest()
+        do {
+            cartList = try context.fetch(request)
+            for label in cartList {
+                print("Items fetched from database: \(label.label!)")
+            }
+        } catch {
+            print("Erro fetching data: \(error)")
+        }
     }
     
     @IBAction func scanButtonPressed(_ sender: Any) {

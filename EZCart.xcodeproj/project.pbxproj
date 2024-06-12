@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA06873C2C1840390080EE1D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06873B2C1840390080EE1D /* Product.swift */; };
 		FA086F302C17C29D00CA377B /* LabelClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FA086F2F2C17C29D00CA377B /* LabelClassifier.mlmodel */; };
 		FAAF04032C0DB1BD007E001D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF04022C0DB1BD007E001D /* AppDelegate.swift */; };
 		FAAF04052C0DB1BD007E001D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF04042C0DB1BD007E001D /* SceneDelegate.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA06873B2C1840390080EE1D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FA086F2F2C17C29D00CA377B /* LabelClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LabelClassifier.mlmodel; sourceTree = "<group>"; };
 		FAAF03FF2C0DB1BD007E001D /* EZCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF04022C0DB1BD007E001D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		FAAF041B2C0DB309007E001D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA06873B2C1840390080EE1D /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,7 +173,6 @@
 				FA086F302C17C29D00CA377B /* LabelClassifier.mlmodel in Sources */,
 				FAAF04032C0DB1BD007E001D /* AppDelegate.swift in Sources */,
 				FAAF04052C0DB1BD007E001D /* SceneDelegate.swift in Sources */,
-				FA06873C2C1840390080EE1D /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
