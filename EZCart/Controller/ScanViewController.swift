@@ -9,10 +9,16 @@ import UIKit
 import Vision
 import CoreData
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+protocol ProductManagerDelegate {
+    func didProductWasadd()
+}
+
+class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var delegate: ProductManagerDelegate?
     
     var cartList = [Product]()
     var wordsGeted:[String] = []
@@ -27,8 +33,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
-        
-        loadProducts()
     }
     
     
@@ -137,22 +141,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func saveProduct(){
         do {
             try context.save()
+            self.dismiss(animated: true)
+            self.delegate?.didProductWasadd()
         } catch {
             print("Erro to save product: \(error)")
-        }
-        
-        loadProducts()
-    }
-    
-    func loadProducts(){
-        let request : NSFetchRequest<Product> = Product.fetchRequest()
-        do {
-            cartList = try context.fetch(request)
-            for label in cartList {
-                print("Items fetched from database: \(label.label!)")
-            }
-        } catch {
-            print("Erro fetching data: \(error)")
         }
     }
     
