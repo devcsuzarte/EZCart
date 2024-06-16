@@ -10,7 +10,7 @@ import Vision
 import CoreData
 
 protocol ProductManagerDelegate {
-    func didProductWasadd()
+    func didProductWasAdd()
 }
 
 class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -25,7 +25,8 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var possiblePrice:[String] = []
     var possibleProducts:[String] = []
 
-    @IBOutlet weak var titleTextLable: UILabel!
+    
+    @IBOutlet weak var productLabelTextField: UITextField!
     @IBOutlet weak var priceTextLabel: UILabel!
     
     override func viewDidLoad() {
@@ -37,12 +38,14 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     @IBAction func refreshTitle(_ sender: Any) {
-        titleTextLable.text = possibleProducts.randomElement()
+        productLabelTextField.text = possibleProducts.randomElement()
     }
     
     @IBAction func refreshPrice(_ sender: Any) {
         priceTextLabel.text = possiblePrice.randomElement()
     }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             recognizeLabel(image: userPickerImage)
@@ -103,14 +106,16 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 analiseTitle(titleCheck: word)
             }
         }
-        
-       // print("PREÇO: \(possiblePrice)")
-        //print("PRODUT: \(possibleProducts)")
-       titleTextLable.text = possibleProducts.randomElement()
+        productLabelTextField.text = possibleProducts.randomElement()
         priceTextLabel.text = possiblePrice.randomElement()
 
     }
     
+    @IBAction func editProducLabelPressed(_ sender: UIButton) {
+        productLabelTextField.isEnabled.toggle()
+        productLabelTextField.isSelected.toggle()
+        productLabelTextField.isHighlighted.toggle()
+    }
     func checkNumeric(S: String) -> Bool {
        return Double(S) != nil
     }
@@ -130,7 +135,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         var newProduct = Product(context: self.context)
-        newProduct.label = titleTextLable.text
+        newProduct.label = productLabelTextField.text
         newProduct.priceLabel = priceTextLabel.text
         
         cartList.append(newProduct)
@@ -141,8 +146,8 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func saveProduct(){
         do {
             try context.save()
-            self.dismiss(animated: true)
-            self.delegate?.didProductWasadd()
+            delegate?.didProductWasAdd()
+            navigationController?.popViewController(animated: true)
         } catch {
             print("Erro to save product: \(error)")
         }

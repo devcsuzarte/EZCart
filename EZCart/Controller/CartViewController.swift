@@ -15,38 +15,30 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func didProductWasadd() {
-        print("Did product was add")
         loadProducts()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("oi")
+    func didProductWasAdd() {
+        print(">>>>>>Did product was add")
         loadProducts()
     }
-    
     
     func loadProducts(){
         let request : NSFetchRequest<Product> = Product.fetchRequest()
         do {
             cartList = try context.fetch(request)
-            for label in cartList {
-                print("Items fetched from database: \(label.label!)")
-            }
+            tableView.reloadData()
         } catch {
             print("Erro fetching data: \(error)")
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ScanViewController
-        destinationVC.delegate = self
-
-    }
-
     // MARK: - Table view data source
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let scanVC = segue.destination as! ScanViewController
+        scanVC.delegate = self
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
