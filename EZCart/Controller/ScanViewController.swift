@@ -20,13 +20,14 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var delegate: ProductManagerDelegate?
     
-    var cartList = [Product]()
     var wordsGeted:[String] = []
-    var possiblePrice:[String] = []
+    var possiblePrice:[Double] = []
     var possibleProducts:[String] = []
     
     var priceManger = PriceManager()
+    var cartList = [Product]()
 
+    var realPrice: Double = 0.0
     
     @IBOutlet weak var productLabelTextField: UITextField!
     @IBOutlet weak var priceLabelTextField: UITextField!
@@ -44,7 +45,8 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func refreshPrice(_ sender: Any) {
-        priceLabelTextField.text = possiblePrice.randomElement()
+        realPrice = possiblePrice.randomElement() ?? 0.0
+        priceLabelTextField.text = "R$\(realPrice)"
     }
     
     
@@ -104,23 +106,15 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if priceManger.priceLabelIsValid(for: word){
                 let number = priceManger.convertToARealPrice(for: word)
                 print("This is a number geted >>>>>>> \(number)")
-                possiblePrice.append(String(number))
+                possiblePrice.append(number)
             } else {
                 analiseTitle(titleCheck: word)
             }
         }
         
-       /*
-        for word in wordsGeted {
-            if word.contains(",") && word.count < 8{
-                //print("PREÇO: \(word)")
-                possiblePrice.append(word)
-            } else {
-                analiseTitle(titleCheck: word)
-            }
-        } */
         productLabelTextField.text = possibleProducts.randomElement()
-        priceLabelTextField.text = possiblePrice.randomElement()
+        realPrice = possiblePrice.randomElement() ?? 0.0
+        priceLabelTextField.text = "R$\(realPrice)"
 
     }
     
@@ -153,7 +147,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         var newProduct = Product(context: self.context)
         newProduct.label = productLabelTextField.text
-        newProduct.priceLabel = priceLabelTextField.text
+        newProduct.priceReal = realPrice
         
         cartList.append(newProduct)
         saveProduct()

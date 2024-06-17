@@ -12,15 +12,17 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var cartList = [Product]()
+    var totalPrice: Double = 0.00
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProducts()
+        getCartPrice()
     }
     
     func didProductWasAdd() {
-        print(">>>>>>Did product was add")
         loadProducts()
+        getCartPrice()
     }
     
     func loadProducts(){
@@ -31,6 +33,15 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
         } catch {
             print("Erro fetching data: \(error)")
         }
+    }
+    
+    func getCartPrice(){
+        for product in cartList {
+            totalPrice += product.priceReal
+        }
+        
+        let totalFormated = String(format: "%.2f", totalPrice)
+        navigationItem.title = "R$ \(totalFormated)"
     }
     
     // MARK: - Table view data source
@@ -51,8 +62,13 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.textLabel?.text = cartList[indexPath.row].label
-        cell.detailTextLabel?.text = cartList[indexPath.row].priceLabel
+        let product = cartList[indexPath.row]
+        cell.textLabel?.text = product.label
+        let priceString = String(format: "%.2f", product.priceReal).replacingOccurrences(of: ".", with: ",")
+        cell.detailTextLabel?.text = "R$\(priceString)"
+            
+        
+        
         return cell
     }
 }

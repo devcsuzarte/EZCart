@@ -12,19 +12,13 @@ struct PriceManager {
     
     func convertToARealPrice(for price: String) -> Double {
         
-        if priceLabelIsValid(for: price) {
+        let commaReplaced = price.replacingOccurrences(of: ",", with: ".")
+        let convertedPrice = Double(commaReplaced.filter("0123456789.".contains))
             
-            let commaReplaced = price.replacingOccurrences(of: ",", with: ".")
-            let convertedPrice = Double(commaReplaced.filter("0123456789.".contains))
-            
-            if let value = convertedPrice {
-                return value
-            } else {
-                return 0.0
-            }
-            
+        if let value = convertedPrice {
+            return value
         } else {
-          return 0.0
+            return 0.0
         }
     }
     
@@ -55,6 +49,5 @@ struct PriceManager {
             return false
         }
     }
-    
     
 }
