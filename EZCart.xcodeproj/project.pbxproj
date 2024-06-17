@@ -16,6 +16,7 @@
 		FAAF040D2C0DB1BD007E001D /* EZCart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAF040B2C0DB1BD007E001D /* EZCart.xcdatamodeld */; };
 		FAAF040F2C0DB1C0007E001D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAF040E2C0DB1C0007E001D /* Assets.xcassets */; };
 		FAAF04122C0DB1C0007E001D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAF04102C0DB1C0007E001D /* LaunchScreen.storyboard */; };
+		FAC1A9192C2021D9005EE0F8 /* PriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1A9182C2021D9005EE0F8 /* PriceManager.swift */; };
 		FAFADA632C19966D00819128 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFADA622C19966D00819128 /* CartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		FAAF040E2C0DB1C0007E001D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAAF04112C0DB1C0007E001D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAAF04132C0DB1C0007E001D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC1A9182C2021D9005EE0F8 /* PriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceManager.swift; sourceTree = "<group>"; };
 		FAFADA622C19966D00819128 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 		FAAF041B2C0DB309007E001D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAC1A9182C2021D9005EE0F8 /* PriceManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAF040D2C0DB1BD007E001D /* EZCart.xcdatamodeld in Sources */,
+				FAC1A9192C2021D9005EE0F8 /* PriceManager.swift in Sources */,
 				FAAF04072C0DB1BD007E001D /* ScanViewController.swift in Sources */,
 				FA086F302C17C29D00CA377B /* LabelClassifier.mlmodel in Sources */,
 				FAAF04032C0DB1BD007E001D /* AppDelegate.swift in Sources */,

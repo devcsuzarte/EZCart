@@ -24,6 +24,8 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var wordsGeted:[String] = []
     var possiblePrice:[String] = []
     var possibleProducts:[String] = []
+    
+    var priceManger = PriceManager()
 
     
     @IBOutlet weak var productLabelTextField: UITextField!
