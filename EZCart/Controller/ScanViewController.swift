@@ -27,7 +27,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     
     @IBOutlet weak var productLabelTextField: UITextField!
-    @IBOutlet weak var priceTextLabel: UILabel!
+    @IBOutlet weak var priceLabelTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func refreshPrice(_ sender: Any) {
-        priceTextLabel.text = possiblePrice.randomElement()
+        priceLabelTextField.text = possiblePrice.randomElement()
     }
     
     
@@ -107,14 +107,18 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
         }
         productLabelTextField.text = possibleProducts.randomElement()
-        priceTextLabel.text = possiblePrice.randomElement()
+        priceLabelTextField.text = possiblePrice.randomElement()
 
     }
     
     @IBAction func editProducLabelPressed(_ sender: UIButton) {
-        productLabelTextField.isEnabled.toggle()
-        productLabelTextField.isSelected.toggle()
-        productLabelTextField.isHighlighted.toggle()
+        productLabelTextField.isEnabled = true
+        productLabelTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func editPriceLabelPressed(_ sender: UIButton) {
+        priceLabelTextField.isEnabled = true
+        productLabelTextField.becomeFirstResponder()
     }
     func checkNumeric(S: String) -> Bool {
        return Double(S) != nil
@@ -136,7 +140,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         var newProduct = Product(context: self.context)
         newProduct.label = productLabelTextField.text
-        newProduct.priceLabel = priceTextLabel.text
+        newProduct.priceLabel = priceLabelTextField.text
         
         cartList.append(newProduct)
         saveProduct()

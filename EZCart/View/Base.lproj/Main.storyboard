@@ -24,62 +24,65 @@
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-Mh-qX2">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckp-cI-GVS">
-                                                <rect key="frame" x="230" y="0.0" width="50" height="34"/>
-                                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
-                                                <connections>
-                                                    <action selector="editProducLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xBk-EA-N91"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-xe-3MR">
-                                                <rect key="frame" x="280" y="0.0" width="20" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="34S-oe-VEa"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
-                                                <connections>
-                                                    <action selector="refreshTitle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LfO-IQ-u5Y"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-WA-aNf">
+                                                <rect key="frame" x="200" y="0.0" width="100" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65T-r1-iLY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="editProducLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oUk-jh-oKs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puO-5F-LVr">
+                                                        <rect key="frame" x="50" y="0.0" width="50" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="refreshTitle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22K-T6-5YM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ckp-cI-GVS" secondAttribute="trailing" id="GUX-Q9-J5Q"/>
-                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsP-8i-S8q">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aze-Lw-AuI">
                                         <rect key="frame" x="0.0" y="53" width="300" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Om-Zk-WB1">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoH-Th-suX">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9a-HP-kyK">
-                                                <rect key="frame" x="280" y="0.0" width="20" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="fCK-nK-g06"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
-                                                <connections>
-                                                    <action selector="refreshPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rv8-v5-yzE"/>
-                                                </connections>
-                                            </button>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbE-hY-gve">
+                                                <rect key="frame" x="200" y="0.0" width="100" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IX5-JN-MyT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="editPriceLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xjj-0g-NnO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92T-vm-6Ne">
+                                                        <rect key="frame" x="50" y="0.0" width="50" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="refreshPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaY-M2-KqU"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="G9a-HP-kyK" secondAttribute="trailing" id="pad-l1-0IL"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -87,7 +90,9 @@
                                 <rect key="frame" x="104.5" y="271" width="111.5" height="34.5"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add to Cart"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add to Cart">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addToCartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RMt-TD-6ry"/>
                                 </connections>
@@ -111,7 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="priceTextLabel" destination="2Om-Zk-WB1" id="jyu-t1-b34"/>
+                        <outlet property="priceLabelTextField" destination="WoH-Th-suX" id="NfB-cI-Kp8"/>
                         <outlet property="productLabelTextField" destination="eqX-Mh-qX2" id="5Ob-oE-Gnz"/>
                     </connections>
                 </viewController>
@@ -204,17 +209,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="doc.viewfinder.fill" catalog="system" width="128" height="115"/>
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
