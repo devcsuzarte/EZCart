@@ -101,13 +101,24 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         wordsGeted = text.components(separatedBy: ";")
         
         for word in wordsGeted {
+            if priceManger.priceLabelIsValid(for: word){
+                let number = priceManger.convertToARealPrice(for: word)
+                print("This is a number geted >>>>>>> \(number)")
+                possiblePrice.append(String(number))
+            } else {
+                analiseTitle(titleCheck: word)
+            }
+        }
+        
+       /*
+        for word in wordsGeted {
             if word.contains(",") && word.count < 8{
                 //print("PREÇO: \(word)")
                 possiblePrice.append(word)
             } else {
                 analiseTitle(titleCheck: word)
             }
-        }
+        } */
         productLabelTextField.text = possibleProducts.randomElement()
         priceLabelTextField.text = possiblePrice.randomElement()
 
