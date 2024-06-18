@@ -28,9 +28,11 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var cartList = [Product]()
 
     var realPrice: Double = 0.0
+    var amount: Int = 1
     
-    @IBOutlet weak var productLabelTextField: UITextField!
     @IBOutlet weak var priceLabelTextField: UITextField!
+    @IBOutlet weak var productLabelTextField: UITextView!
+    @IBOutlet weak var amountTextLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,11 +120,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
-    @IBAction func editProducLabelPressed(_ sender: UIButton) {
-        productLabelTextField.isEnabled = true
-        productLabelTextField.becomeFirstResponder()
-    }
-    
     func checkNumeric(S: String) -> Bool {
        return Double(S) != nil
     }
@@ -140,10 +137,18 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        sender.minimumValue = 1
+        amount = Int(sender.value)
+        amountTextLabel.text = "Amount: \(amount)x"
+        
+    }
+    
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         var newProduct = Product(context: self.context)
         newProduct.label = productLabelTextField.text
         newProduct.priceReal = realPrice
+        newProduct.amount = Int32(amount)
         
         cartList.append(newProduct)
         saveProduct()
