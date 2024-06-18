@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,102 +18,112 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-lk-4W4">
-                                <rect key="frame" x="10" y="192.5" width="300" height="87"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Shu-ia-c9O">
+                                <rect key="frame" x="15" y="84" width="290" height="219"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bla-Og-8tF">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="edK-nJ-tDO">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="35"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-Mh-qX2">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
-                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-WA-aNf">
-                                                <rect key="frame" x="200" y="0.0" width="100" height="34"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UE0-xx-MVj">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65T-r1-iLY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
-                                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="editProducLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oUk-jh-oKs"/>
-                                                        </connections>
-                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-Hu-bQj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoH-Th-suX">
+                                                        <rect key="frame" x="42.5" y="0.0" width="97.5" height="35"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="wfN-Hu-bQj" firstAttribute="top" secondItem="UE0-xx-MVj" secondAttribute="top" id="L1k-Pv-JtK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wfN-Hu-bQj" secondAttribute="bottom" id="hoK-WO-Aud"/>
+                                                    <constraint firstItem="wfN-Hu-bQj" firstAttribute="leading" secondItem="UE0-xx-MVj" secondAttribute="leading" id="t8u-vL-gKS"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cao-jb-syv">
+                                                <rect key="frame" x="240" y="0.0" width="50" height="35"/>
+                                                <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puO-5F-LVr">
-                                                        <rect key="frame" x="50" y="0.0" width="50" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="35"/>
                                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise.circle" catalog="system"/>
                                                         <connections>
-                                                            <action selector="refreshTitle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22K-T6-5YM"/>
+                                                            <action selector="refreshPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H2i-5g-9RI"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="puO-5F-LVr" secondAttribute="trailing" id="50z-gF-HI8"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="UE0-xx-MVj" firstAttribute="leading" secondItem="edK-nJ-tDO" secondAttribute="leading" id="rVx-7X-iUm"/>
+                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aze-Lw-AuI">
-                                        <rect key="frame" x="0.0" y="53" width="300" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-lk-4W4">
+                                        <rect key="frame" x="0.0" y="60" width="290" height="96"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoH-Th-suX">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
-                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbE-hY-gve">
-                                                <rect key="frame" x="200" y="0.0" width="100" height="34"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bla-Og-8tF">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="34"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IX5-JN-MyT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="editPriceLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xjj-0g-NnO"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92T-vm-6Ne">
-                                                        <rect key="frame" x="50" y="0.0" width="50" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-Mh-qX2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8p-fs-qE3">
+                                                        <rect key="frame" x="240" y="0.0" width="50" height="34"/>
+                                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise.circle" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="refreshPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaY-M2-KqU"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8A-eC-qAw">
+                                                <rect key="frame" x="0.0" y="46" width="290" height="50"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtk-nr-1eB">
+                                        <rect key="frame" x="0.0" y="181" width="290" height="38"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add to Cart">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToCartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RMt-TD-6ry"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="rtk-nr-1eB" firstAttribute="centerX" secondItem="Shu-ia-c9O" secondAttribute="centerX" id="A7D-13-P6i"/>
+                                    <constraint firstAttribute="trailing" secondItem="bo6-lk-4W4" secondAttribute="trailing" id="CCT-B7-58d"/>
+                                    <constraint firstAttribute="trailing" secondItem="edK-nJ-tDO" secondAttribute="trailing" id="QfZ-3l-pxn"/>
+                                    <constraint firstItem="bo6-lk-4W4" firstAttribute="leading" secondItem="Shu-ia-c9O" secondAttribute="leading" id="c2M-eD-3Fm"/>
+                                    <constraint firstItem="edK-nJ-tDO" firstAttribute="leading" secondItem="Shu-ia-c9O" secondAttribute="leading" id="y3M-2A-ek4"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtk-nr-1eB">
-                                <rect key="frame" x="98" y="319.5" width="124.5" height="38"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add to Cart">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addToCartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RMt-TD-6ry"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="bo6-lk-4W4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GtF-YB-TgJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bo6-lk-4W4" secondAttribute="trailing" constant="10" id="Ijf-tA-joo"/>
-                            <constraint firstItem="bo6-lk-4W4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="qx0-Z5-YLH"/>
-                            <constraint firstItem="rtk-nr-1eB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vli-kP-HfI"/>
-                            <constraint firstItem="rtk-nr-1eB" firstAttribute="top" secondItem="bo6-lk-4W4" secondAttribute="bottom" constant="40" id="wXJ-1g-Nfc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Shu-ia-c9O" secondAttribute="trailing" constant="15" id="HPO-pO-9hc"/>
+                            <constraint firstItem="Shu-ia-c9O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XkC-us-Qfl"/>
+                            <constraint firstItem="Shu-ia-c9O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hO6-Sw-ULj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan" id="Kcx-Fb-Y59">
+                    <navigationItem key="navigationItem" title="Scan" largeTitleDisplayMode="never" id="Kcx-Fb-Y59">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="fGl-zU-Ury">
                             <connections>
                                 <action selector="scanButtonPressed:" destination="BYZ-38-t0r" id="gdu-yx-Heo"/>
@@ -126,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2933" y="-791"/>
+            <point key="canvasLocation" x="2932.5" y="-791.19718309859161"/>
         </scene>
         <!--EZCart-->
         <scene sceneID="P29-AN-FWl">
@@ -169,7 +180,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="EZCart" id="UfL-xx-BGT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="doc.viewfinder.fill" catalog="system" id="lUd-8d-80I">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="lUd-8d-80I">
+                            <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="BVk-IA-ihA"/>
                             </connections>
@@ -215,8 +227,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
-        <image name="doc.viewfinder.fill" catalog="system" width="128" height="115"/>
-        <image name="pencil.circle" catalog="system" width="128" height="123"/>
+        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

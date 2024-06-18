@@ -46,7 +46,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func refreshPrice(_ sender: Any) {
         realPrice = possiblePrice.randomElement() ?? 0.0
-        priceLabelTextField.text = "R$\(realPrice)"
+        priceLabelTextField.text = String(realPrice)
     }
     
     
@@ -114,7 +114,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         productLabelTextField.text = possibleProducts.randomElement()
         realPrice = possiblePrice.randomElement() ?? 0.0
-        priceLabelTextField.text = "R$\(realPrice)"
+        priceLabelTextField.text = String(realPrice)
 
     }
     
@@ -123,10 +123,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         productLabelTextField.becomeFirstResponder()
     }
     
-    @IBAction func editPriceLabelPressed(_ sender: UIButton) {
-        priceLabelTextField.isEnabled = true
-        productLabelTextField.becomeFirstResponder()
-    }
     func checkNumeric(S: String) -> Bool {
        return Double(S) != nil
     }
