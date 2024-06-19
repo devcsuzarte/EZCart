@@ -51,6 +51,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         priceLabelTextField.text = String(realPrice)
     }
     
+    //MARK: - IMAGE RECONGNIZER
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -98,6 +99,8 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    // MARK: - HANDLE TEXT
+    
     func textHandle(text : String){
         possiblePrice = []
         possibleProducts = []
@@ -107,7 +110,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         for word in wordsGeted {
             if priceManger.priceLabelIsValid(for: word){
                 let number = priceManger.convertToARealPrice(for: word)
-                print("This is a number geted >>>>>>> \(number)")
                 possiblePrice.append(number)
             } else {
                 analiseTitle(titleCheck: word)
@@ -137,6 +139,21 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    // MARK: - DATA BASE
+    
+    func saveProduct(){
+        do {
+            try context.save()
+            delegate?.didProductWasAdd()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            print("Erro to save product: \(error)")
+        }
+    }
+    
+    
+    
+    
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         sender.minimumValue = 1
         amount = Int(sender.value)
@@ -155,15 +172,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         print(newProduct)
     }
     
-    func saveProduct(){
-        do {
-            try context.save()
-            delegate?.didProductWasAdd()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            print("Erro to save product: \(error)")
-        }
-    }
     
     @IBAction func scanButtonPressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)

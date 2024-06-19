@@ -20,6 +20,24 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
         getCartPrice()
     }
     
+    
+    @IBAction func cleanCartButtonPressed(_ sender: UIBarButtonItem) {
+        
+        for product in cartList {
+            context.delete(product)
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print("Erro to save product: \(error)")
+        }
+        
+        getCartPrice()
+        loadProducts()
+        
+    }
+    
     // MARK: - LOAD DATA
     
     func didProductWasAdd() {

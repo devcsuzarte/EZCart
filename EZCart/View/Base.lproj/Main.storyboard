@@ -87,6 +87,9 @@
                                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="refreshTitle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8wG-AU-rc2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -206,12 +209,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="EZCart" id="UfL-xx-BGT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="lUd-8d-80I">
-                            <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="BVk-IA-ihA"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="lUd-8d-80I">
+                                <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="BVk-IA-ihA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="trash" catalog="system" id="8iy-z4-YEh">
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="cleanCartButtonPressed:" destination="ddv-gM-Ar9" id="HmT-oC-qBH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlB-dS-L7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,6 +268,7 @@
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -265,6 +277,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
