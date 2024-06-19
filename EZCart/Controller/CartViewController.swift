@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreData
+import SwipeCellKit
 
-class CartViewController: UITableViewController, ProductManagerDelegate {
+class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTableViewCellDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var cartList = [Product]()
@@ -81,14 +82,26 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         let product = cartList[indexPath.row]
         cell.textLabel?.text = "\(product.amount)x \(product.label!)"
         let priceString = String(format: "%.2f", product.priceReal).replacingOccurrences(of: ".", with: ",")
         cell.detailTextLabel?.text = "R$\(priceString)"
-            
-        
-        
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+
+        return [deleteAction]
     }
 }

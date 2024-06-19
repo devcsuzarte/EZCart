@@ -43,6 +43,7 @@
                                                 <constraints>
                                                     <constraint firstItem="WoH-Th-suX" firstAttribute="centerY" secondItem="UE0-xx-MVj" secondAttribute="centerY" id="G43-3T-bqj"/>
                                                     <constraint firstItem="wfN-Hu-bQj" firstAttribute="top" secondItem="UE0-xx-MVj" secondAttribute="top" id="L1k-Pv-JtK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WoH-Th-suX" secondAttribute="trailing" id="fLF-i8-TsJ"/>
                                                     <constraint firstAttribute="bottom" secondItem="wfN-Hu-bQj" secondAttribute="bottom" id="hoK-WO-Aud"/>
                                                     <constraint firstItem="wfN-Hu-bQj" firstAttribute="leading" secondItem="UE0-xx-MVj" secondAttribute="leading" id="t8u-vL-gKS"/>
                                                 </constraints>
@@ -63,6 +64,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="puO-5F-LVr" secondAttribute="trailing" id="50z-gF-HI8"/>
                                                     <constraint firstItem="puO-5F-LVr" firstAttribute="centerY" secondItem="cao-jb-syv" secondAttribute="centerY" id="C3b-Ai-Afh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="puO-5F-LVr" secondAttribute="trailing" id="Fpr-oz-TIL"/>
+                                                    <constraint firstItem="puO-5F-LVr" firstAttribute="leading" secondItem="cao-jb-syv" secondAttribute="leading" id="VTT-3F-lfQ"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -93,10 +96,17 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bla-Og-8tF" secondAttribute="height" multiplier="145:17" id="CPX-4u-M4d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="b8p-fs-qE3" secondAttribute="trailing" id="aZl-qS-XEs"/>
                                                     <constraint firstItem="eqX-Mh-qX2" firstAttribute="centerY" secondItem="bla-Og-8tF" secondAttribute="centerY" id="nvg-WM-csb"/>
+                                                    <constraint firstItem="b8p-fs-qE3" firstAttribute="leading" secondItem="eqX-Mh-qX2" secondAttribute="trailing" id="oLC-dP-374"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bla-Og-8tF" firstAttribute="leading" secondItem="bo6-lk-4W4" secondAttribute="leading" id="Aue-hT-hLy"/>
+                                            <constraint firstAttribute="trailing" secondItem="bla-Og-8tF" secondAttribute="trailing" id="QAz-PC-QlA"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-a5-IpW">
                                         <rect key="frame" x="0.0" y="119" width="290" height="32"/>
@@ -132,6 +142,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="GXk-DG-anx"/>
                                 <constraints>
                                     <constraint firstItem="pG9-a5-IpW" firstAttribute="leading" secondItem="Shu-ia-c9O" secondAttribute="leading" id="3y6-Kn-Mfq"/>
                                     <constraint firstItem="rtk-nr-1eB" firstAttribute="centerX" secondItem="Shu-ia-c9O" secondAttribute="centerX" id="A7D-13-P6i"/>
@@ -177,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="t9R-FT-JS5" detailTextLabel="Xwe-bi-uWS" style="IBUITableViewCellStyleSubtitle" id="Qpc-h7-W9l">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="t9R-FT-JS5" detailTextLabel="Xwe-bi-uWS" style="IBUITableViewCellStyleSubtitle" id="Qpc-h7-W9l" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="50" width="320" height="57.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qpc-h7-W9l" id="e4Q-TH-e6I">
@@ -237,6 +248,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="l30-do-f7p">
                         <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <color key="barTintColor" systemColor="systemGreenColor"/>
                         <textAttributes key="titleTextAttributes">
@@ -273,13 +285,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
