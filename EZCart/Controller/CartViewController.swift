@@ -20,6 +20,8 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
         getCartPrice()
     }
     
+    // MARK: - LOAD DATA
+    
     func didProductWasAdd() {
         loadProducts()
         getCartPrice()
@@ -37,10 +39,10 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
     
     func getCartPrice(){
         for product in cartList {
-            totalPrice += product.priceReal
+            totalPrice += product.priceReal * Double(product.amount)
         }
         
-        let totalFormated = String(format: "%.2f", totalPrice)
+        let totalFormated = String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ",")
         navigationItem.title = "R$ \(totalFormated)"
     }
     
@@ -63,7 +65,7 @@ class CartViewController: UITableViewController, ProductManagerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let product = cartList[indexPath.row]
-        cell.textLabel?.text = product.label
+        cell.textLabel?.text = "\(product.amount)x \(product.label!)"
         let priceString = String(format: "%.2f", product.priceReal).replacingOccurrences(of: ".", with: ",")
         cell.detailTextLabel?.text = "R$\(priceString)"
             

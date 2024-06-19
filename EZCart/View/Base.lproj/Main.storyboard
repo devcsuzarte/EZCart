@@ -239,6 +239,9 @@
                             <textAttributes key="titleTextAttributes">
                                 <color key="textColor" systemColor="systemGreenColor"/>
                             </textAttributes>
+                            <textAttributes key="largeTitleTextAttributes">
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                            </textAttributes>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
