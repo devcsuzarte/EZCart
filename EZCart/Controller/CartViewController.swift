@@ -96,12 +96,29 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
         guard orientation == .right else { return nil }
 
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
+            
+            self.context.delete(self.cartList[indexPath.row])
+    
+            do {
+                try self.context.save()
+                self.loadProducts()
+            } catch {
+                print("Erro to delete product: \(error)")
+            }
+            
         }
-
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "delete")
-
-        return [deleteAction]
+        
+        let updateAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
+            print("EDIT PRODUCT")
+            
+        }
+        return [deleteAction, updateAction]
     }
+    
+    func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
+    }
+
 }
