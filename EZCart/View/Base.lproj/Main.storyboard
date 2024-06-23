@@ -188,11 +188,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="t9R-FT-JS5" detailTextLabel="Xwe-bi-uWS" style="IBUITableViewCellStyleSubtitle" id="Qpc-h7-W9l" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="t9R-FT-JS5" detailTextLabel="Xwe-bi-uWS" style="IBUITableViewCellStyleSubtitle" id="Qpc-h7-W9l" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="50" width="320" height="57.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qpc-h7-W9l" id="e4Q-TH-e6I">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="293.5" height="57.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t9R-FT-JS5">
@@ -220,20 +220,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="EZCart" id="UfL-xx-BGT">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" id="lUd-8d-80I">
-                                <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="BVk-IA-ihA"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="trash" catalog="system" id="8iy-z4-YEh">
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <action selector="cleanCartButtonPressed:" destination="ddv-gM-Ar9" id="HmT-oC-qBH"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" image="trash" catalog="system" id="8iy-z4-YEh">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="cleanCartButtonPressed:" destination="ddv-gM-Ar9" id="HmT-oC-qBH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="lUd-8d-80I">
+                            <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="BVk-IA-ihA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlB-dS-L7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,7 +244,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6zp-9a-F5N" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="l30-do-f7p">
-                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="98.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
@@ -285,13 +283,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

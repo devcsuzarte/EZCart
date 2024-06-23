@@ -18,7 +18,8 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProducts()
-        getCartPrice()
+        print(FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist"))
     }
     
     
@@ -33,8 +34,6 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
         } catch {
             print("Erro to save product: \(error)")
         }
-        
-        getCartPrice()
         loadProducts()
         
     }
@@ -43,13 +42,14 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     
     func didProductWasAdd() {
         loadProducts()
-        getCartPrice()
     }
     
     func loadProducts(){
+        
         let request : NSFetchRequest<Product> = Product.fetchRequest()
         do {
             cartList = try context.fetch(request)
+            getCartPrice()
             tableView.reloadData()
         } catch {
             print("Erro fetching data: \(error)")
@@ -57,12 +57,15 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     }
     
     func getCartPrice(){
-        for product in cartList {
-            totalPrice += product.priceReal * Double(product.amount)
+        totalPrice = 0
+        if cartList.count > 0 {
+            for product in cartList {
+                totalPrice += product.priceReal * Double(product.amount)
+            }
         }
-        
+        print("Total = \(totalPrice)")
         let totalFormated = String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ",")
-        navigationItem.title = "R$ \(totalFormated)"
+        navigationItem.title = "Total: R$ \(totalFormated)"
     }
     
     // MARK: - Table view data source
@@ -87,7 +90,7 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
         let product = cartList[indexPath.row]
         cell.textLabel?.text = "\(product.amount)x \(product.label!)"
         let priceString = String(format: "%.2f", product.priceReal).replacingOccurrences(of: ".", with: ",")
-        cell.detailTextLabel?.text = "R$\(priceString)"
+        cell.detailTextLabel?.text = "Total: R$\(priceString)"
 
         return cell
     }
@@ -97,28 +100,30 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
 
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             
-            self.context.delete(self.cartList[indexPath.row])
-    
-            do {
-                try self.context.save()
-                self.loadProducts()
-            } catch {
-                print("Erro to delete product: \(error)")
-            }
+            self.updateModel(at: indexPath)
             
         }
         
-        let updateAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
-            print("EDIT PRODUCT")
-            
-        }
-        return [deleteAction, updateAction]
+
+        return [deleteAction]
     }
     
-    func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         var options = SwipeOptions()
         options.expansionStyle = .destructive
+        options.transitionStyle = .border
         return options
     }
-
+     
+     func updateModel(at indexPath: IndexPath) {
+         
+         context.delete(self.cartList[indexPath.row])
+ 
+         do {
+             try self.context.save()
+         } catch {
+             print("Erro to delete product: \(error)")
+         }
+     }
+    
 }
