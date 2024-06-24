@@ -90,7 +90,7 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
         let product = cartList[indexPath.row]
         cell.textLabel?.text = "\(product.amount)x \(product.label!)"
         let priceString = String(format: "%.2f", product.priceReal).replacingOccurrences(of: ".", with: ",")
-        cell.detailTextLabel?.text = "Total: R$\(priceString)"
+        cell.detailTextLabel?.text = "Unidade: R$\(priceString)"
 
         return cell
     }
@@ -98,7 +98,7 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
 
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: "Apagar") { action, indexPath in
             
             self.updateModel(at: indexPath)
             

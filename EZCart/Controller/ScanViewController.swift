@@ -157,7 +157,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         sender.minimumValue = 1
         amount = Int(sender.value)
-        amountTextLabel.text = "Amount: \(amount)x"
+        amountTextLabel.text = "Quantidade: \(amount)x"
         
     }
     
