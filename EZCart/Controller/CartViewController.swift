@@ -18,6 +18,8 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProducts()
+        tableView.rowHeight = 80.0
+
         print(FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist"))
     }
@@ -118,6 +120,8 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
      func updateModel(at indexPath: IndexPath) {
          
          context.delete(self.cartList[indexPath.row])
+         cartList.remove(at: indexPath.row)
+         getCartPrice()
  
          do {
              try self.context.save()
