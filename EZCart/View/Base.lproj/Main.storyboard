@@ -152,11 +152,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scan" largeTitleDisplayMode="never" id="Kcx-Fb-Y59">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="fGl-zU-Ury">
-                            <connections>
-                                <action selector="scanButtonPressed:" destination="BYZ-38-t0r" id="gdu-yx-Heo"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="fGl-zU-Ury">
+                                <connections>
+                                    <action selector="scanButtonPressed:" destination="BYZ-38-t0r" id="gdu-yx-Heo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="photo.fill.on.rectangle.fill" catalog="system" id="hOF-ar-9lp">
+                                <connections>
+                                    <action selector="galleryPickerPressed:" destination="BYZ-38-t0r" id="MKU-FX-6bU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="amountTextLabel" destination="gsD-gD-Xeg" id="X5t-lU-ygm"/>
@@ -267,6 +274,7 @@
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <image name="clear" catalog="system" width="128" height="114"/>
+        <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

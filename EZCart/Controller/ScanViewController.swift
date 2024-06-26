@@ -37,7 +37,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
     }
     
@@ -49,6 +48,10 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func refreshPrice(_ sender: Any) {
         realPrice = possiblePrice.randomElement() ?? 0.0
         priceLabelTextField.text = String(realPrice)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(">>>edited")
     }
     
     //MARK: - IMAGE RECONGNIZER
@@ -174,8 +177,15 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     @IBAction func scanButtonPressed(_ sender: Any) {
+        imagePicker.sourceType = .camera
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func galleryPickerPressed(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     
     
 }
