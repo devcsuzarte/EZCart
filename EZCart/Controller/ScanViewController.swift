@@ -40,6 +40,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         imagePicker.allowsEditing = false
     }
     
+    // MARK: - REFRESH LABEL
     
     @IBAction func refreshTitle(_ sender: Any) {
         productLabelTextField.text = possibleProducts.randomElement()
@@ -48,10 +49,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func refreshPrice(_ sender: Any) {
         realPrice = possiblePrice.randomElement() ?? 0.0
         priceLabelTextField.text = String(realPrice)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print(">>>edited")
     }
     
     //MARK: - IMAGE RECONGNIZER
@@ -154,8 +151,9 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+
     
-    
+    // MARK: - STEPPER
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         sender.minimumValue = 1
@@ -164,17 +162,21 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    // MARK: - ADD TO CART
+    
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         var newProduct = Product(context: self.context)
-        newProduct.label = productLabelTextField.text
-        newProduct.priceReal = realPrice
-        newProduct.amount = Int32(amount)
-        
-        cartList.append(newProduct)
-        saveProduct()
-        print(newProduct)
+        if let price = priceLabelTextField.text, let label = productLabelTextField.text{
+            newProduct.label = label
+            newProduct.priceReal = priceManger.convertToARealPrice(for: price)
+            newProduct.amount = Int32(amount)
+            cartList.append(newProduct)
+            saveProduct()
+            print(newProduct)
+        }
     }
     
+    // MARK: - SCAN BUTTONS
     
     @IBAction func scanButtonPressed(_ sender: Any) {
         imagePicker.sourceType = .camera
