@@ -77,7 +77,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 return
             }
             
-            
            let text = observations.compactMap({
                 $0.topCandidates(1).first?.string
             }).joined(separator: ";")
@@ -150,9 +149,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             print("Erro to save product: \(error)")
         }
     }
-    
-
-    
     // MARK: - STEPPER
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
@@ -187,8 +183,5 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
-    
-    
-    
 }
 

@@ -27,16 +27,28 @@ class CartViewController: UITableViewController, ProductManagerDelegate, SwipeTa
     
     @IBAction func cleanCartButtonPressed(_ sender: UIBarButtonItem) {
         
-        for product in cartList {
-            context.delete(product)
+        let alert = UIAlertController(title: "Limpar Carrinho", message: "Atenção, todos dos itens serão deletados", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Limpar", style: .destructive) {(action) in
+            
+            for product in self.cartList {
+                self.context.delete(product)
+            }
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("Erro to save product: \(error)")
+            }
+            self.loadProducts()
         }
         
-        do {
-            try context.save()
-        } catch {
-            print("Erro to save product: \(error)")
-        }
-        loadProducts()
+
+        let actionDismiss = UIAlertAction(title: "Cancelar", style: .default)
+        
+        alert.addAction(actionDismiss)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
         
     }
     
